@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
     templateUrl: './recipe.component.html'
 })
 export class RecipeComponent {
+    recipeDetails;
 
 }
