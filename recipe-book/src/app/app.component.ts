@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  displayComponent = '';
+  // displayComponent = '';
   
-  changePage(page) {
-    this.displayComponent = page;
-  }
+  // changePage(page) {
+  //   this.displayComponent = page;
+  // }
 
 }
