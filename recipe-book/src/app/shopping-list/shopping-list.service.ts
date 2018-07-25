@@ -4,8 +4,8 @@ import { EventEmitter } from "../../../node_modules/@angular/core";
 export class ShoppingListService {
     ingredientsChanged = new EventEmitter<Ingredient[]>()
     private ingredients: Ingredient[] = [
-        new Ingredient('Apples', '5'),
-        new Ingredient('Tomatoes', '10')
+        new Ingredient('Apples', 5),
+        new Ingredient('Tomatoes', 10)
     ];
 
     getIngredients() {
@@ -14,6 +14,11 @@ export class ShoppingListService {
 
     addIngredient(ingredient) {
         this.ingredients.push(ingredient);
+        this.ingredientsChanged.emit(this.ingredients.slice());
+    }
+
+    addIngredients(ingredients: Ingredient[]) {
+        this.ingredients.push(...ingredients);
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
 }
