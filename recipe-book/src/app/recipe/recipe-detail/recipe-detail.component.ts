@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ingredient } from '../../shared/ingredient.model';
-import { ShoppingListService } from '../../shopping-list/shopping-list.service';
+
 import { RecipeService } from '../recipe.service';
 import { ActivatedRoute, Router, Params } from '../../../../node_modules/@angular/router';
 import { Recipe } from '../recipe.model';
@@ -25,14 +24,13 @@ export class RecipeDetailComponent implements OnInit {
     )
   }
 
-  // toShoppingList(ingredients: Ingredient[]) {
-  //   console.log(ingredients);
-  //   ingredients.forEach(ingredient => {
-  //     this.shoppingListService.addIngredient(ingredient);
-  //   });
-  // }
-
   toShoppingList() {
     this.recipeService.addIngredientsToShoppingList(this.recipeDetail.ingredients)
+  }
+
+  onEdit() {
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
+    // Alt:
+    // this.router.navigate(['../', this.id, 'edit'], {relativeTo: this.route});
   }
 }
